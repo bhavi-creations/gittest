@@ -1,0 +1,23 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ production ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: shimatsu/setup-ssh@v2
+        with:
+          host: 35.154.59.41
+          username: ubuntu  # Replace with your username on the server (if different)
+          key: ${{ secrets.ORGANIZATION_SSH_KEY }}
+          port: 22
+      - name: Deploy code
+        run: |
+          ssh -T ubuntu@35.154.59.41 '
+            cd /home/bhavicreations/domains/gittest.bhavicreations.com  # Replace with the path to your website directory
+            git pull origin production
+          '
