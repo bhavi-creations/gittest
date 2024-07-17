@@ -22,5 +22,3 @@ jobs:
             # Add any additional deployment commands here
             echo "Deployment Status=success" >> ssh_output.env  # Example output capture
           '
-      - name: Print Output (Optional)  
-        run: echo "Deployment Status: ${{ env.OUTPUT_STATUS }}"  # Access environment variable
