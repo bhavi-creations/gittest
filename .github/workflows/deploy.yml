@@ -8,13 +8,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: shimatsu/setup-ssh@v2
+      - id: ssh
+        uses: invi5H/ssh-action@v1
         with:
-          host: 35.154.59.41
-          username: ubuntu  # Replace with your username on the server (if different)
-          key: ${{ secrets.ORGANIZATION_SSH_KEY }}
-          port: 22
+          SSH_HOST: 35.154.59.41
+          SSH_USER: ubuntu
+          SSH_KEY: ${{ secrets.ORGANIZATION_SSH_KEY }}
       - name: Deploy code
         run: |
           ssh -T ubuntu@35.154.59.41 '
