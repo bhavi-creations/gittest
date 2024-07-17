@@ -18,6 +18,6 @@ jobs:
       - name: Deploy code
         run: |
           ssh -T ubuntu@35.154.59.41 '
-            cd /home/bhavicreations/domains/gittest.bhavicreations.com  # Replace with the path to your website directory
+            cd /home/bhavicreations/domains/gittest.bhavicreations.com/public_html  # Replace with the path to your website directory
             git pull origin production
           '
