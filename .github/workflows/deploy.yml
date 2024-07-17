@@ -15,8 +15,12 @@ jobs:
           SSH_USER: ubuntu
           SSH_KEY: ${{ secrets.ORGANIZATION_SSH_KEY }}
       - name: Deploy code
-        run: |
-          ssh -T ubuntu@35.154.59.41 '
+        run: |  
+          ssh -T ubuntu@${{ steps.ssh.outputs.host }} '  # Access output from SSH step
             cd /home/bhavicreations/domains/gittest.bhavicreations.com/public_html  # Replace with the path to your website directory
-            git pull origin production
+            git pull -v origin production  # Include -v for verbose output
+            # Add any additional deployment commands here
+            echo "Deployment Status=success" >> ssh_output.env  # Example output capture
           '
+      - name: Print Output (Optional)  
+        run: echo "Deployment Status: ${{ env.OUTPUT_STATUS }}"  # Access environment variable
