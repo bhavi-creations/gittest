@@ -11,8 +11,7 @@ jobs:
       - name: 🌈 Deploy with ssh...
         uses: sebastianjnuwu/ssh-action-deploy@v3
         with:
-          IP: 35.154.59.41
-          USER: ubuntu
-          KEY: ${{ secrets.ORGANIZATION_SSH_KEY }}
-          FOLDER: "/home/bhavicreations/domains/gittest.bhavicreations.com/public_html"
-          RUN: "git pull -v origin production"
+          host: 35.154.59.41
+          username: ubuntu
+          key: ${{ secrets.ORGANIZATION_SSH_KEY }}
+          command: 'cd /home/bhavicreations/domains/gittest.bhavicreations.com/public_html && git pull origin production'
