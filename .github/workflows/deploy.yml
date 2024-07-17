@@ -20,5 +20,5 @@ jobs:
             cd /home/bhavicreations/domains/gittest.bhavicreations.com/public_html  # Replace with the path to your website directory
             git pull -v origin production  # Include -v for verbose output
             # Add any additional deployment commands here
-            echo "Deployment Status=success" >> ssh_output.env  # Example output capture
+            echo "DEPLOYMENT_STATUS=success" >> ssh_output.env  # Example output capture
           '
