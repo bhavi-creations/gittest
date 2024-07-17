@@ -13,6 +13,6 @@ jobs:
         with:
           IP: 35.154.59.41
           USER: ubuntu
-          KEY: ${{ secrets.ORGANIZATION_SSH_KEY }}
+          KEY: ${{ secrets.DEPLOYMENT_SERVER_KEY }}
           FOLDER: "/home/bhavicreations/domains/gittest.bhavicreations.com/public_html"
           RUN: 'cd ${{ steps.checkout.outputs.path }} && git pull origin production'
